@@ -9,8 +9,23 @@ import Foundation
 class AppetizerListViewModel: ObservableObject {
     @Published var appetisers: [Appetiser] = []
     @Published var alertItem: AlertItem?
+    @Published var selectedAppetiser: Appetiser? {
+        didSet {
+            isShowingDetailView = true
+        }
+    }
+    
+    @Published var isShowingDetailView: Bool = false
     
     @Published var isLoading = false
+    
+    var blurRadius: CGFloat {
+        isShowingDetailView ? 20: 0
+    }
+    
+    var isListDisabled: Bool {
+        isShowingDetailView ? true: false
+    }
     
     func getAppetisers() {
         isLoading = true
