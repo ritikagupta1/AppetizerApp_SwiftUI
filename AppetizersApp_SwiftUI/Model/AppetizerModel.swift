@@ -5,7 +5,7 @@
 //  Created by Ritika Gupta on 11/01/25.
 //
 
-struct Appetiser: Decodable {
+struct Appetiser: Decodable, Identifiable {
     let id: Int
     let description: String
     let name: String
@@ -42,5 +42,35 @@ struct MockData {
         imageUrl: "",
         price: 9.99)
     
-    static let appetisers = [sampleAppetiser, sampleAppetiser, sampleAppetiser, sampleAppetiser]
+    static let appetisers = [sampleAppetiser, orderItemOne, orderItemTwo, orderItemThree]
+    
+    static let orderItemOne = Appetiser(
+        id: 001,
+        description: "This is a sample appetiser 1",
+        name: "Sample Appetiser",
+        carbs: 9,
+        calories: 2,
+        protein: 8,
+        imageUrl: "",
+        price: 9.99)
+    
+    static let orderItemTwo = Appetiser(
+        id: 002,
+        description: "This is a sample appetiser 2",
+        name: "Sample Appetiser",
+        carbs: 9,
+        calories: 2,
+        protein: 8,
+        imageUrl: "",
+        price: 9.99)
+    
+    static let orderItemThree = Appetiser(
+        id: 003,
+        description: "This is a sample appetiser 3",
+        name: "Sample Appetiser",
+        carbs: 9,
+        calories: 2,
+        protein: 8,
+        imageUrl: "",
+        price: 9.99)
 }
