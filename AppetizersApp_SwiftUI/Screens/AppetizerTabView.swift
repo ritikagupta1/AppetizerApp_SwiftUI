@@ -26,7 +26,6 @@ struct AppetizerTabView: View {
                     Image(systemName: "bag")
                 }
         }
-        .tint(Color.brandPrimary)
     }
 }
 
