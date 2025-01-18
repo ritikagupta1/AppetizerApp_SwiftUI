@@ -15,9 +15,21 @@ struct AppetizerDetailView: View {
     
     var body: some View {
         VStack {
-            AppetizerRemoteImage(urlString: appetiser.imageUrl)
-                .frame(width: 300, height: 225)
-                
+//            AppetizerRemoteImage(urlString: appetiser.imageUrl)
+//                .frame(width: 300, height: 225)
+            
+            AsyncImage(url: URL(string: appetiser.imageUrl)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 225)
+            } placeholder: {
+                Image(.foodPlaceholder)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 225)
+            }
+
             VStack {
                 Text(appetiser.name)
                     .font(.title2)

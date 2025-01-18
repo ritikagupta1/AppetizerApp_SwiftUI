@@ -12,9 +12,23 @@ struct AppetizerCellView: View {
     
     var body: some View {
         HStack {
-            AppetizerRemoteImage(urlString: appetiser.imageUrl)
-                .frame(width: 120, height: 90)
-                .cornerRadius(10)
+//            AppetizerRemoteImage(urlString: appetiser.imageUrl)
+//                .frame(width: 120, height: 90)
+//                .cornerRadius(10)
+            
+            AsyncImage(url: URL(string: appetiser.imageUrl)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 90)
+                    .cornerRadius(8)
+            } placeholder: {
+                Image(.foodPlaceholder)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 90)
+                    .cornerRadius(8)
+            }
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(appetiser.name)
