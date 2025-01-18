@@ -29,8 +29,11 @@ struct OrderView: View {
                     Button {
                         
                     } label: {
-                        AppetizerButton(title: "\(order.items.reduce(0, { $0 + $1.price}), specifier: "%.2f") - Place Order")
+//                        AppetizerButton(title: "\(order.items.reduce(0, { $0 + $1.price}), specifier: "%.2f") - Place Order")
+                        Text("\(order.items.reduce(0, { $0 + $1.price}), specifier: "%.2f") - Place Order")
                     }
+//                    .modifier(StandardButtonStyle())
+                    .standardButtonModifier()
                     .padding(.bottom, 25)
                 }
                 

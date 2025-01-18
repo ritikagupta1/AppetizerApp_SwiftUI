@@ -48,8 +48,10 @@ struct AppetizerDetailView: View {
                 order.add(appetiser)
                 isShowingDetailView = false
             } label: {
-                AppetizerButton(title: "$ \(appetiser.price, specifier: "%.2f") - Add to Order")
+//                AppetizerButton(title: "$ \(appetiser.price, specifier: "%.2f") - Add to Order")
+                Text("$ \(appetiser.price, specifier: "%.2f") - Add to Order")
             }
+            .modifier(StandardButtonStyle())
             .padding(.bottom, 30)
         }
         .frame(width: 300, height: 525)
